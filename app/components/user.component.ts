@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `<h1> Hello {{name}}</h1>
   <p><strong>Email: {{email}}</strong></p>
   <p><strong>Address: {{address.city}} {{address.street}}</strong></p>
+  <button (click)="toggleHobbies()">Schow Hobbies</button>
   <div *ngIf="showHobbies">
     <h3>Hobbies</h3>
     <ul>
@@ -31,6 +32,10 @@ export class UserComponent  {
         } 
         this.hobbies = ['Music', 'Movies','Sports'];
         this.showHobbies = false;
+    }
+    toggleHobbies(){
+        console.log("toogle hobbies");
+        this.showHobbies=!this.showHobbies;
     }
 }
 interface address{
