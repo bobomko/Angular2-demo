@@ -14,4 +14,8 @@ export class UserComponent  {
       street: "MAria Tusch Str",
       city: "Vienna"
     }
+    
+    constructor(){
+        this.name = 'Sami Abe';
+      }
 }

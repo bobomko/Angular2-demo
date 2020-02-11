@@ -9,7 +9,7 @@ export class AppComponent  {
     name = "Ali Akalin";
     email = "pimpip@pim.pip"
     address ={
-      street: "MAria Tusch Str",
+      street: "Maria Tusch Str",
       city: "Vienna"
     }
 }
