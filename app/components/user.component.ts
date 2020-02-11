@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'user',
-  template: `<h1> Hello {{name}}</h1>
-  <p><strong>Email: {{email}}</strong></p>
-  <p><strong>Address: {{address.city}} {{address.street}}</strong></p>
+  template: `<h1>{{name}}</h1>
+  <p><strong>Email:</strong> {{email}}</p>
+  <p><strong>Address:</strong> {{address.city}}, {{address.street}}</p>
   <button (click)="toggleHobbies()">{{showHobbies? "Hide Hobbies" : "Schow Hobbies"}}</button>
   <div *ngIf="showHobbies">
     <h3>Hobbies</h3>
@@ -14,6 +14,18 @@ import { Component } from '@angular/core';
       </li>
     </ul>
   </div>
+  <hr/>
+  <h3>Edit User</h3>
+  <form>
+  <label>Name: </label><br />
+  <input type="text" name= "name" [(ngModel)]="name" /><br />
+  <label>Email: </label><br />
+  <input type="text" name= "email" [(ngModel)]="email" /><br />
+  <label>City: </label><br />
+  <input type="text" name= "address.city" [(ngModel)]="address.city" /><br />
+  <label>Street: </label><br />
+  <input type="text" name= "address.street" [(ngModel)]="address.street" /><br />
+  </form>
   `,
 })
 export class UserComponent  { 
@@ -27,7 +39,7 @@ export class UserComponent  {
         this.name = 'Ali Akalin';
         this.email = 'pimpip@pim.pip';
         this.address ={
-          street: 'MAria Tusch Str',
+          street: 'Maria Tusch Str',
           city: 'Vienna'
         } 
         this.hobbies = ['Music', 'Movies','Sports'];
