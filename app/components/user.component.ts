@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {PostService} from '../services/post.service';
+import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'user',
@@ -30,7 +32,14 @@ import { Component } from '@angular/core';
   <label>Street: </label><br />
   <input type="text" name= "address.street" [(ngModel)]="address.street" /><br />
   </form>
+  <hr />
+  <h3>Posts</h3>
+  <div *ngFor="let post of posts">
+    <h3>{{post.title}}</h3>
+    <p>{{post.body}}</p>
+    </div>
   `,
+  providers: [PostService]
 })
 export class UserComponent  { 
     name: string;
@@ -38,8 +47,9 @@ export class UserComponent  {
     address: address;
     hobbies: string[];
     showHobbies: boolean;
+    posts: Post[];
 
-    constructor(){
+    constructor(private postsService: PostService){
         this.name = 'Ali Akalin';
         this.email = 'pimpip@pim.pip';
         this.address ={
@@ -48,6 +58,10 @@ export class UserComponent  {
         } 
         this.hobbies = ['Music', 'Movies','Sports'];
         this.showHobbies = false;
+        this.postsService.getPosts().subscribe(posts => {
+            this.posts = posts;
+        })
+
     }
     toggleHobbies(){
         console.log("toogle hobbies");
@@ -65,3 +79,9 @@ interface address{
     city: string;
 }
 
+interface Post{
+    id: number;
+    title: string;
+    body: string;
+
+}
