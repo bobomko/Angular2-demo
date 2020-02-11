@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
     <h3>Hobbies</h3>
     <ul>
       <li *ngFor="let hobby of hobbies; let i = index">
-      {{hobby}}<button (click) = "deleteHobby(i)">X</button>
+      {{hobby}} <button (click) = "deleteHobby(i)">X</button>
       </li>
         <form (submit) = "addHobby(hobby.value)">
             <label>Add Hobby: </label><br />
