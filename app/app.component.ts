@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'my-app',
-  template: `<router-outlet></router-outlet>
+  template: `
+    <ul>
+      <li> <a routerLink ="/">Home</a></li>
+      <li> <a routerLink ="/about">About</a></li>
+    </ul>
+    <hr />
+    <router-outlet></router-outlet>
   `,
 })
 export class AppComponent  { 
